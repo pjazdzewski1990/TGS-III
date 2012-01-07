@@ -7,8 +7,8 @@ namespace TGS_III
 {
     interface IGFlow
     {
-        public void Flow(int start, int stop, Int16?[][] _matrix);
+        void Flow(int start, int stop, Int16?[][] _matrix);
 
-        public String raport();
+        String report();
     }
 }

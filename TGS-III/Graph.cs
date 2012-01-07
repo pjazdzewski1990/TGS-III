@@ -28,8 +28,8 @@ namespace TGS_III
         /// <summary>
         /// Dodaj krawędź do grafu
         /// </summary>
-        /// <param name="from">startowy wierzchołek</param>
-        /// <param name="to">końcowy wierzchołek</param>
+        /// <param name="from">Startowy wierzchołek</param>
+        /// <param name="to">Końcowy wierzchołek</param>
         public void addEdge(int from, int to, Int16? flow) {
             
             //najpierw rozszerz "w szerz"
@@ -66,7 +66,7 @@ namespace TGS_III
         /// </summary>
         private void height()
         {
-            max_edges += 10;
+            max_edges += 1;
             Array.Resize<Int16?[]>(ref matrix, max_edges);
         }
 
@@ -89,5 +89,12 @@ namespace TGS_III
             alg = _alg;
         }
 
+        /// <summary>
+        /// Wypisuje raport z poszukiwania przepływu na konsolę
+        /// </summary>
+        internal void report()
+        {
+            Console.WriteLine(alg.report());
+        }
     }
 }

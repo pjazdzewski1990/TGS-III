@@ -86,24 +86,26 @@ namespace TGS_III
         /// Zmniejsza wartość przepływu krawędzi na ścieżce o wartość min
         /// </summary>
         /// <param name="path">Ścieżka zawierająca krawędzie których przepływy trzeba zmniejszyć</param>
-        /// <param name="min"></param>
+        /// <param name="min">O ile zmniejszyć wartość przejścia</param>
         private void minimize(List<int> path, int min)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < path.Count - 1; i++) {
+                transition(path[i], path[i + 1], (short)min);
+            }
         }
 
         /// <summary>
         /// Znajduje minimalny przeływ na podanej ścieżce i zwraca go
         /// </summary>
         /// <param name="path">Ścieżka na ktorej szukamy</param>
-        /// <returns></returns>
+        /// <returns>Minimalna wartość przepływu na zadanej ścieżce</returns>
         private int findMinFlow(List<int> path)
         {
             int? min = null;
             int f = -1;
-            for (int i = 0; i < path.Count; i++)
+            for (int i = 0; i < path.Count - 1; i++)
             {
-                f = flow(path[i],path[i+1]);
+                f = transition(path[i],path[i+1]);
                 if ((min == null) || (min > f && f >= 0 )) {
                     min = f;
                 }
@@ -112,14 +114,37 @@ namespace TGS_III
             return (int)min;
         }
 
-        private int flow(int start, int end)
+        /// <summary>
+        /// Znajduje wartość przepływu pomiędzy start i end o ile jest większy niż 0
+        /// jeśli jest wiele takich przejść to znajduje pierwsze
+        /// jesli nie ma przejścia spełniającego warunki to rzuca wyjątek ArgumentException 
+        /// zmniejsza ten przepływ o val
+        /// </summary>
+        /// <param name="start">Wierzchołek startowy</param>
+        /// <param name="end">wierzchołek końcowy</param>
+        /// <param name="val">wierzchołek końcowy</param>
+        /// <returns>Wartość przejścia pomiędzy start i end po zmniejszeniu</returns>
+        private int transition(int start, int end, short val)
         {
             foreach (short?[] arr in matrix) {
-                if (arr[end] == -1 && arr[start] > 0) {
-                    return (int)arr[end];   
+                try
+                {
+                    if (arr[end] == -1 && arr[start] > 0)
+                    {
+                        arr[start] -= val;
+                        return (int)arr[start];
+                    }
+                }
+                catch (Exception e) { 
+                
                 }
             }
-            throw new ArgumentException("Flow: nie ścieżki pomiędzy " + start + " a " + end);
+            throw new ArgumentException("Transition: nie ma ścieżki pomiędzy " + start + " a " + end);
+        }
+
+        private int transition(int start, int end)
+        {
+            return transition(start, end, 0);
         }
 
         /// <summary>
@@ -155,7 +180,7 @@ namespace TGS_III
                 //jesli nie ma takiego przejscia to zdejmij wierzcholke z gory i szukaj dalej
                 if (found == -1)
                 {
-                    if(element >= edges_num){
+                    if(element <= edges_num){
                         element++;
                     }else{
                         //cofnij sie o krok na ścieżce
@@ -166,18 +191,19 @@ namespace TGS_III
                 else {
                     if (!path.Contains(found))
                     {
-                        path.Add(last);
+                        path.Add(found);
                         element = -1;
-                    }
-
-                    if (path[last] == stop)
-                    {
-                        raport_str.Append(representPath(path));
-                        Console.WriteLine(representPath(path));
-                        return path;
                     }
                 }
 
+                last = path.Count - 1;
+
+                if (path[last] == stop)
+                {
+                    raport_str.Append(representPath(path));
+                    Console.WriteLine(representPath(path));
+                    return path;
+                }
             }
         }
 
@@ -201,12 +227,18 @@ namespace TGS_III
         /// </summary>
         /// <param name="p">Numer wierzchołka w którym jesteśmy</param>
         /// <param name="element">Numer wierzchołka ma być większy niż</param>
-        /// <returns></returns>
+        /// <returns>Zwraca numer wierzchołka lub -1 jeśli go nie ma</returns>
         private int findWay(int p, int element)
         {
             for (int i = element + 1; i < matrix.Length; i++) {
-                if (matrix[i][p] != null && matrix[i][p] > 0) {
-                    return (int)matrix[i][p];
+                try
+                {
+                    if (matrix[i][p] != null && matrix[i][p] > 0)
+                    {
+                        return (int)matrix[i][p];
+                    }
+                }
+                catch (Exception e) {  
                 }
             }
 
@@ -217,7 +249,7 @@ namespace TGS_III
         /// Zwraca raport z procesu szukania największego przepływu 
         /// </summary>
         /// <returns>Raport z przepływu pod postacią obiektu kalsy String(zawiera wiele linii)</returns>
-        public String raport()
+        public String report()
         {
             return raport_str.ToString();
         }

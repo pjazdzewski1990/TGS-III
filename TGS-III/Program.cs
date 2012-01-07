@@ -27,6 +27,7 @@ namespace TGS_III
 
             //3. Uruchom przekazany algorytm z odpowiednimi parametrami
             ggg.findFlow(0, 4);
+            ggg.report();
 
             Console.ReadKey();
         }
