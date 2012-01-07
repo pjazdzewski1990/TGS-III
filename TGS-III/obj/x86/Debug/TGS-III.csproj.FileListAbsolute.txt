@@ -1,0 +1,5 @@
+C:\Users\Patryk\Documents\Visual Studio 2010\Projects\TGS-III\TGS-III\bin\Debug\TGS-III.exe
+C:\Users\Patryk\Documents\Visual Studio 2010\Projects\TGS-III\TGS-III\bin\Debug\TGS-III.pdb
+C:\Users\Patryk\Documents\Visual Studio 2010\Projects\TGS-III\TGS-III\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Patryk\Documents\Visual Studio 2010\Projects\TGS-III\TGS-III\obj\x86\Debug\TGS-III.exe
+C:\Users\Patryk\Documents\Visual Studio 2010\Projects\TGS-III\TGS-III\obj\x86\Debug\TGS-III.pdb
