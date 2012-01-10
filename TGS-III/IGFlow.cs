@@ -10,5 +10,7 @@ namespace TGS_III
         void Flow(int start, int stop, Int16?[][] _matrix);
 
         String report();
+
+        int maxFlow();
     }
 }

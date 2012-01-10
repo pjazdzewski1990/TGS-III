@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ford_Fulkersoncs.cs" />
+    <Compile Include="Ford_Fulkerson.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="IGFlow.cs" />
     <Compile Include="Program.cs" />

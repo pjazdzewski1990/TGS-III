@@ -23,11 +23,30 @@ namespace TGS_III
             ggg.addEdge(3, 4, 4); //od czwórki do piątki długości 4
 
             //2. Przygotuj algorytm i podaj go do obiektu klasy Graph
-            ggg.flowAlg(new Ford_Fulkersons());
+            ggg.flowAlg(new Ford_Fulkerson());
 
             //3. Uruchom przekazany algorytm z odpowiednimi parametrami
             ggg.findFlow(0, 4);
             ggg.report();
+
+            Console.ReadKey();
+
+            //1. Przygotuj graf
+            Graph ggg2 = new Graph();
+            ggg2.addEdge(0, 1, 2); 
+            ggg2.addEdge(1, 3, 2);
+
+            ggg2.addEdge(0, 2, 1);
+            ggg2.addEdge(2, 3, 1);
+
+            ggg2.addEdge(0, 3, 3);
+
+            //2. Przygotuj algorytm i podaj go do obiektu klasy Graph
+            ggg2.flowAlg(new Ford_Fulkerson());
+
+            //3. Uruchom przekazany algorytm z odpowiednimi parametrami
+            ggg2.findFlow(0, 3);
+            ggg2.report();
 
             Console.ReadKey();
         }
