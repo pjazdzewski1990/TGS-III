@@ -12,5 +12,7 @@ namespace TGS_III
         String report();
 
         int maxFlow();
+
+        void debugMode(bool _debug);
     }
 }

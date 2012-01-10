@@ -9,18 +9,26 @@ namespace TGS_III
     {
         //zbiera dane do późniejszego raportowania
         //każdy wpis kończy sie "\n"
-        StringBuilder raport_str = new StringBuilder();
+        protected StringBuilder raport_str = new StringBuilder();
 
         //macierz identyczna jak w przypadku matrix z Graph
-        Int16?[][] matrix = new Int16?[0][];
+        protected Int16?[][] matrix = new Int16?[0][];
 
         //liczba wierzcholkow - wnioskowana z macierz po jej zaladowaniu
-        int edges_num = -1;
+        protected int edges_num = -1;
 
         //flow val to sumaryczny przepływ z wszystkich ścieżek
-        int flow_val = 0;
+        protected int flow_val = 0;
 
-        public void Flow(int start, int stop, Int16?[][] _matrix)
+        protected bool debug = false;
+
+        /// <summary>
+        /// Metoda szukająca maksymalny przepływ.
+        /// </summary>
+        /// <param name="start">Punkt początkowy przepływu</param>
+        /// <param name="stop">Punkt końcowy przepływu</param>
+        /// <param name="_matrix">Graf na ktorym operujemy przedstawiony w postaci macierzy incydencji</param>
+        virtual public void Flow(int start, int stop, Int16?[][] _matrix)
         {
             setFlowMatrix(_matrix);
 
@@ -51,7 +59,8 @@ namespace TGS_III
         /// chcemy operować na kopii
         /// </summary>
         /// <param name="_matrix">Nowa macierz przepływu</param>
-        private void setFlowMatrix(Int16?[][] _matrix) {
+        protected void setFlowMatrix(Int16?[][] _matrix)
+        {
             matrix = _matrix;
 
             edges_num = findEdgesNum(matrix);
@@ -62,7 +71,7 @@ namespace TGS_III
         /// </summary>
         /// <param name="matrix">Macierz z danymi nt. przejść w grafie</param>
         /// <returns>Maksymalna liczba wierzchołków</returns>
-        private int findEdgesNum(short?[][] matrix)
+        protected int findEdgesNum(short?[][] matrix)
         {
             int num = -1;
             for(int i= 0; i< matrix.Length; i++){
@@ -94,7 +103,7 @@ namespace TGS_III
         /// </summary>
         /// <param name="path">Ścieżka zawierająca krawędzie których przepływy trzeba zmniejszyć</param>
         /// <param name="min">O ile zmniejszyć wartość przejścia</param>
-        private void minimize(List<int> path, int min)
+        protected void minimize(List<int> path, int min)
         {
             for (int i = 0; i < path.Count - 1; i++) {
                 transition(path[i], path[i + 1], (short)min);
@@ -106,7 +115,7 @@ namespace TGS_III
         /// </summary>
         /// <param name="path">Ścieżka na ktorej szukamy</param>
         /// <returns>Minimalna wartość przepływu na zadanej ścieżce</returns>
-        private int findMinFlow(List<int> path)
+        protected int findMinFlow(List<int> path)
         {
             int? min = null;
             int f = -1;
@@ -119,7 +128,10 @@ namespace TGS_III
             }
 
             raport_str.Append("Przepływ na ścieżce wynosi " + min + "\n");
-            Console.WriteLine("Przepływ na ścieżce wynosi " + min + "\n");
+            if (debug)
+            {
+                Console.WriteLine("Przepływ na ścieżce wynosi " + min + "\n");
+            }
             return (int)min;
         }
 
@@ -133,7 +145,7 @@ namespace TGS_III
         /// <param name="end">wierzchołek końcowy</param>
         /// <param name="val">wierzchołek końcowy</param>
         /// <returns>Wartość przejścia pomiędzy start i end po zmniejszeniu</returns>
-        private int transition(int start, int end, short val)
+        protected int transition(int start, int end, short val)
         {
             short?[] arr;
 
@@ -166,7 +178,7 @@ namespace TGS_III
             throw new ArgumentException("Transition: nie ma ścieżki pomiędzy " + start + " a " + end);
         }
 
-        private int transition(int start, int end)
+        protected int transition(int start, int end)
         {
             return transition(start, end, 0);
         }
@@ -178,7 +190,7 @@ namespace TGS_III
         /// <param name="start">Wierzchołek początkowy</param>
         /// <param name="stop">Wierzchołek końcowy</param>
         /// <returns>Lista int'ów jako kolejnych wierzchołków od przejścia</returns>
-        private List<int> findPath(int start, int stop)
+        protected List<int> findPath(int start, int stop)
         {
             //lista wierzcholkow przez ktore musimy przejsc by dojsc z start do stop
             //start i stop też są na tej liscie
@@ -233,7 +245,11 @@ namespace TGS_III
                 if (path[last] == stop)
                 {
                     raport_str.Append(representPath(path));
-                    Console.WriteLine(representPath(path));
+                    raport_str.Append("\n");
+                    if (debug)
+                    {
+                        Console.WriteLine(representPath(path));
+                    }
                     return path;
                 }
             }
@@ -242,7 +258,7 @@ namespace TGS_III
         }
 
 
-        private String representPath(List<int> path)
+        protected String representPath(List<int> path)
         {
             StringBuilder sb = new StringBuilder("Scieżka: ");
 
@@ -251,7 +267,6 @@ namespace TGS_III
                 sb.Append("->");
             }
             sb.Remove(sb.Length - 2, 2);
-            sb.Append("\n");
 
             return sb.ToString();
         }
@@ -263,7 +278,7 @@ namespace TGS_III
         /// <param name="p">Numer wierzchołka w którym jesteśmy</param>
         /// <param name="element">Numer wierzchołka ma być większy niż</param>
         /// <returns>Zwraca numer wierzchołka lub -1 jeśli go nie ma</returns>
-        private int findWay(int p, int element)
+        protected int findWay(int p, int element)
         {
             for (int i = 0; i < matrix.Length; i++) {
                 try
@@ -298,8 +313,20 @@ namespace TGS_III
             return raport_str.ToString();
         }
 
+        /// <summary>
+        /// Zwróć maksymalny przepływ jako liczbę całkowitą
+        /// </summary>
+        /// <returns>Liczba całkowita reprezentująca maksymalny przepływ uzyskany w wyniku poprzedniego sprawdzania</returns>
         public int maxFlow() {
             return flow_val;
+        }
+
+        /// <summary>
+        /// Ustala czy użytkownik życzy sobie otrzymywać komunikaty na ekran
+        /// </summary>
+        /// <param name="_debug">Wartość logiczna: czy drukować komunikaty?</param>
+        public void debugMode(bool _debug) {
+            this.debug = _debug;
         }
     }
 }
