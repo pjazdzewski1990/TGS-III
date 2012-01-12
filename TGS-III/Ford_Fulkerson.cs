@@ -132,13 +132,20 @@ namespace TGS_III
             {
                 Console.WriteLine("Przepływ na ścieżce wynosi " + min + "\n");
             }
-            return (int)min;
+
+            if (min == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return (int)min;
+            }
         }
 
         /// <summary>
         /// Znajduje wartość przepływu pomiędzy start i end o ile jest większy niż 0
         /// jeśli jest wiele takich przejść to znajduje pierwsze
-        /// jesli nie ma przejścia spełniającego warunki to rzuca wyjątek ArgumentException 
         /// zmniejsza ten przepływ o val
         /// </summary>
         /// <param name="start">Wierzchołek startowy</param>
@@ -175,7 +182,8 @@ namespace TGS_III
 
                 }
             }
-            throw new ArgumentException("Transition: nie ma ścieżki pomiędzy " + start + " a " + end);
+            return 0;
+            //throw new ArgumentException("Transition: nie ma ścieżki pomiędzy " + start + " a " + end);
         }
 
         protected int transition(int start, int end)
@@ -257,10 +265,14 @@ namespace TGS_III
             return path;
         }
 
-
+        /// <summary>
+        /// Prezentuje ścieżkę w grafie w postaci czytelnej dla człowieka
+        /// </summary>
+        /// <param name="path">Ścieżka którą chcemy zaprezentować</param>
+        /// <returns>Czytelna dla człowieka reprezentacja</returns>
         protected String representPath(List<int> path)
         {
-            StringBuilder sb = new StringBuilder("Scieżka: ");
+            StringBuilder sb = new StringBuilder("Ścieżka: ");
 
             foreach(int edge in path){
                 sb.Append(edge);

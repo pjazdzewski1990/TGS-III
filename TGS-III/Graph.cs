@@ -96,5 +96,20 @@ namespace TGS_III
         {
             Console.WriteLine(alg.report());
         }
+
+        /// <summary>
+        /// Ustala czy użytkownik życzy sobie otrzymywać komunikaty na ekran
+        /// </summary>
+        /// <param name="_debug">Wartość logiczna: czy drukować komunikaty?</param>
+        public void debugMode(bool _debug)
+        {
+            if (alg != null)
+            {
+                alg.debugMode(_debug);
+            }
+            else {
+                throw new InvalidOperationException("Brak zdefiniowanego algorytmu. Nie można aktywować Debug Mode");
+            }
+        }
     }
 }

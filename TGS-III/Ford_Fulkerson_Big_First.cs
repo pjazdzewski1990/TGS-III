@@ -37,8 +37,11 @@ namespace TGS_III
             //które określają wierzchołki przez które trzeba przejść
             List<int> path = null;
 
+            //wszystkie trasy
+            List<List<int>> paths = findPaths(start, stop);
+
             //jeśli jest ścieżka o długości większej niż 0 
-            while ((path = analyze(start, stop)).Count > 0)
+            while ((path = analyze(ref paths)).Count > 0)
             {
                 int min = findMinFlow(path);
                 flow_val += min;
@@ -55,17 +58,22 @@ namespace TGS_III
         /// <param name="start">Wierzchołek początkowy ścieżki</param>
         /// <param name="stop">Wierzchołek końcowy ścieżki</param>
         /// <returns>Scieżka o największym przepływie przy obecnym stanie grafu</returns>
-        protected List<int> analyze(int start, int stop)
+        protected List<int> analyze(ref List<List<int>> paths)
         {
             int best_flow = -1;
             List<int> best = new List<int>();
 
-            List<List<int>> paths = findPaths(start, stop);
+            removeUnavailable(ref paths);
+
+            if (debug)
+            {
+                Console.WriteLine("Analyze: Ilość ścieżek przekazanych " + paths.Count);
+            }
 
             for (int i = 0; i < paths.Count; i++)
             { 
                 int min = findMinFlow(paths[i]);
-                Console.WriteLine("Porównuję " + representPath(paths[i]) + ":" + min + " z " + representPath(best) + ":" + best_flow);
+                Console.WriteLine("Analyze: Porównuję " + representPath(paths[i]) + ":" + min + " z " + representPath(best) + ":" + best_flow);
                 if (min > best_flow) {
                     best_flow = min;
                     best = paths[i];
@@ -75,6 +83,27 @@ namespace TGS_III
             return best;
         }
 
+        /// <summary>
+        /// Usuwa niedrożne ścieżki z listy ścieżek
+        /// </summary>
+        /// <param name="paths">Referencja na listę ścieżek</param>
+        private void removeUnavailable(ref List<List<int>> paths)
+        {
+            for (int i = 0; i < paths.Count; i++ )
+            {
+                if (findMinFlow(paths[i]) <= 0)
+                {
+                    paths.Remove(paths[i]);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Znajduje wszystkie ścieżko z start do stop
+        /// </summary>
+        /// <param name="start">Poczatek każdej z ścieżek, punkt startowy</param>
+        /// <param name="stop">Koniec każdej z ścieżek, punkt końcowy</param>
+        /// <returns></returns>
         private List<List<int>> findPaths(int start, int stop)
         {
             //wszystkie ścieżki z "start" do "stop" w obecnym "matrix"
@@ -139,9 +168,14 @@ namespace TGS_III
                 {
                     raport_str.Append(representPath(path));
                     raport_str.Append("\n");
-                    //Console.WriteLine(representPath(path));
-                    //return path;
-                    paths.Add(path);
+                    if (debug)
+                    {
+                        Console.WriteLine("FindPaths:Dodaje " + representPath(path));
+                    }
+                    paths.Add(new List<int>(path));
+                    //cofnij sie o krok na ścieżce
+                    element = path[last];
+                    path.RemoveAt(last);
                 }
             }
 
