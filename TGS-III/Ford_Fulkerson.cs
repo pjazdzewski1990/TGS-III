@@ -84,7 +84,7 @@ namespace TGS_III
 
         /// <summary>
         /// Zwraca wewnętrzną macierz przepływu
-        /// domyślnie chodzi o macierz <PO> wykonaniu algorytmu 
+        /// domyślnie chodzi o macierz po wykonaniu algorytmu 
         /// </summary>
         /// <returns>Ww. macierz, a raczej to co z niej pozostanie po wyzerowaniu niektórych krawędzi</returns>
         public Int16?[][] getFlowMatrix()
@@ -130,7 +130,7 @@ namespace TGS_III
             raport_str.Append("Przepływ na ścieżce wynosi " + min + "\n");
             if (debug)
             {
-                Console.WriteLine("Przepływ na ścieżce wynosi " + min + "\n");
+                Console.WriteLine("Przepływ na ścieżce wynosi " + min);
             }
 
             if (min == null)

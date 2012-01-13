@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="d0733358-52aa-43da-a7ed-6e5354736c7f" name="IGFlow" linkedPackageId="0677a3ba-ba54-47e2-ba05-0f2dd5e20fd7" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="9c305f83-60a0-492d-bb75-dac18128adba">
+      <profileInstance Id="13caddbf-08d8-46ad-8e27-80768cc0779f" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="67429a8b-92a5-49a4-a3cc-efa682ca5a66">
+      <profileInstance Id="33b45857-1376-49c6-8274-e4e91e13d7c4" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="88dc381d-251e-413c-a914-d02428c380a8" name="IGFLow" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="255666a0-22c9-4d9c-9f86-2799235ed633" />
+        <ownedOperations>
+          <operation Id="8f9d300b-ea46-4df8-b3f9-6c6baac24c67" name="void Flow" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cee43da9-662f-4c25-83b2-9022d39bbd46" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cbcec3f5-8806-4101-9339-83eb4b1ea08b" name="int start" direction="In" isUnique="false">
+                  <elementDefinition Id="5348a258-8c87-4a43-ab3f-9e55d16835be" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9d0afe81-c7c6-4c3a-91d5-33289c1e173e" name="int stop" direction="In" isUnique="false">
+                  <elementDefinition Id="d95072b8-5e31-4782-b036-64358ae6c883" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5d5eb959-34fd-49a3-8d14-0f1342d392f0" name="Int16?[][] _matrix" direction="In" isUnique="false">
+                  <elementDefinition Id="bbfcd650-5ffb-42cf-84f6-425cf581ac6c" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="35413a01-a28c-4c92-bb71-39abeab6617f" name="String report" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="89288977-39c6-4592-aab9-f274185b34a7" />
+          </operation>
+          <operation Id="195a0b95-8d11-4802-b48e-371f9568cc32" name="int maxFlow" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="53c65034-a72c-4032-a1ca-e1418741f911" />
+          </operation>
+          <operation Id="280411f6-8384-4fa7-8ba9-e60a7102c864" name="void debugMode" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="37cb4754-a243-4418-a738-30ebedfe2974" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9af8f4b6-7d83-4892-877d-27351e6871d4" name="bool _debug" direction="In" isUnique="false">
+                  <elementDefinition Id="4dc59cc5-6982-4a87-82f3-9bcd058d8fc8" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="3ef9df79-4293-4a77-9d9d-fee821c7654e" name="Ford_Fulkerson" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="513860fa-367b-433c-9f29-847d45cd6898" />
+        <suppliersInternal>
+          <dependency Id="5ccd24ba-20a9-453a-a608-003b84161e0e">
+            <interfaceMoniker Id="88dc381d-251e-413c-a914-d02428c380a8" LastKnownName="IGFLow" />
+            <elementDefinition Id="b929642c-9e43-4105-8764-0855b0af9890" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="bd2c9913-b28e-4ba6-b1f0-c2855e7e2475" name="Ford_Fulkerson_Big_First" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="598804b2-eadf-47f4-9f7d-4088b52a382b" />
+        <generalsInternal>
+          <generalization Id="6fd604fc-e795-4c7b-82d6-98db396957f2" isSubstitutable="false">
+            <classMoniker Id="3ef9df79-4293-4a77-9d9d-fee821c7654e" LastKnownName="Ford_Fulkerson" />
+            <elementDefinition Id="3b7a7c90-52be-43f7-8715-4210b8e00d34" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0282fc5d-97f4-40c3-8022-b4d16c474fb7" name="Graph" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="22376099-2b6d-4ada-bf90-5cd3a5c90017" />
+        <targetEnds>
+          <association Id="b8770798-8fca-47b3-b115-5f5610b0a565" isDerived="false" sourceEndRoleName="Graph" targetEndRoleName="IGFLow" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="88dc381d-251e-413c-a914-d02428c380a8" LastKnownName="IGFLow" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5f6b9315-39d8-432f-86c8-47eef5aaf44e" name="Graph" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="08745def-e64c-47e5-a13c-05d479da9763" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5097043c-8ac4-4f81-9441-260f505407f7" name="IGFLow" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="1d7cbb75-3c51-41c3-91be-8cc2e9d47ba0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="454fa161-8ebf-4a9a-b223-8dd7620d64f9" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="0677a3ba-ba54-47e2-ba05-0f2dd5e20fd7" name="ModelingProject1">
+    <elementDefinition Id="e218e84f-57f0-4ebe-8d42-a501775cd6f9" />
+  </package>
+</logicalClassDesignerModel>

@@ -30,6 +30,7 @@ namespace TGS_III
         /// </summary>
         /// <param name="from">Startowy wierzchołek</param>
         /// <param name="to">Końcowy wierzchołek</param>
+        /// <param name="flow">Przepływ pomiędzy wierzchołkami</param>
         public void addEdge(int from, int to, Int16? flow) {
             
             //najpierw rozszerz "w szerz"

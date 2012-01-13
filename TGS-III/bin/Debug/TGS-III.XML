@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TGS-III</name>
+    </assembly>
+    <members>
+        <member name="T:TGS_III.Ford_Fulkerson_Big_First">
+            <summary>
+            Zmodyfikowana wersja algorytmu Forda-Fulkersona.
+            Ta wersja w pierwszej kolejności wybiera ścieżki dające największy 
+            przepływ w danym momencie 
+            </summary>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.Flow(System.Int32,System.Int32,System.Nullable{System.Int16}[][])">
+            <summary>
+            Metoda szukająca maksymalny przepływ.
+            </summary>
+            <param name="start">Punkt początkowy przepływu</param>
+            <param name="stop">Punkt końcowy przepływu</param>
+            <param name="_matrix">Graf na ktorym operujemy przedstawiony w postaci macierzy incydencji</param>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.setFlowMatrix(System.Nullable{System.Int16}[][])">
+            <summary>
+            Ustawia wartość wewnętrznej - w sensie skopiuj wartości
+            chcemy operować na kopii
+            </summary>
+            <param name="_matrix">Nowa macierz przepływu</param>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.findEdgesNum(System.Nullable{System.Int16}[][])">
+            <summary>
+            Określa maksymalną ilość wierzchołków w macierzy matrix
+            </summary>
+            <param name="matrix">Macierz z danymi nt. przejść w grafie</param>
+            <returns>Maksymalna liczba wierzchołków</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.getFlowMatrix">
+            <summary>
+            Zwraca wewnętrzną macierz przepływu
+            domyślnie chodzi o macierz po wykonaniu algorytmu 
+            </summary>
+            <returns>Ww. macierz, a raczej to co z niej pozostanie po wyzerowaniu niektórych krawędzi</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.minimize(System.Collections.Generic.List{System.Int32},System.Int32)">
+            <summary>
+            Zmniejsza wartość przepływu krawędzi na ścieżce o wartość min
+            </summary>
+            <param name="path">Ścieżka zawierająca krawędzie których przepływy trzeba zmniejszyć</param>
+            <param name="min">O ile zmniejszyć wartość przejścia</param>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.findMinFlow(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Znajduje minimalny przeływ na podanej ścieżce i zwraca go
+            </summary>
+            <param name="path">Ścieżka na ktorej szukamy</param>
+            <returns>Minimalna wartość przepływu na zadanej ścieżce</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.transition(System.Int32,System.Int32,System.Int16)">
+            <summary>
+            Znajduje wartość przepływu pomiędzy start i end o ile jest większy niż 0
+            jeśli jest wiele takich przejść to znajduje pierwsze
+            zmniejsza ten przepływ o val
+            </summary>
+            <param name="start">Wierzchołek startowy</param>
+            <param name="end">wierzchołek końcowy</param>
+            <param name="val">wierzchołek końcowy</param>
+            <returns>Wartość przejścia pomiędzy start i end po zmniejszeniu</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.findPath(System.Int32,System.Int32)">
+            <summary>
+            Znajduje ścieżkę po której można przejść z start do stop
+            warunkiem "przejścia" jest przepływ >0 na każdej pokonywanej krawędzi
+            </summary>
+            <param name="start">Wierzchołek początkowy</param>
+            <param name="stop">Wierzchołek końcowy</param>
+            <returns>Lista int'ów jako kolejnych wierzchołków od przejścia</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.representPath(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Prezentuje ścieżkę w grafie w postaci czytelnej dla człowieka
+            </summary>
+            <param name="path">Ścieżka którą chcemy zaprezentować</param>
+            <returns>Czytelna dla człowieka reprezentacja</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.findWay(System.Int32,System.Int32)">
+            <summary>
+            Znajduje wierzchołek połączony dodatnią droga z p, większy niż element
+            lub zwróć -1 gdy taki nie istnieje
+            </summary>
+            <param name="p">Numer wierzchołka w którym jesteśmy</param>
+            <param name="element">Numer wierzchołka ma być większy niż</param>
+            <returns>Zwraca numer wierzchołka lub -1 jeśli go nie ma</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.report">
+            <summary>
+            Zwraca raport z procesu szukania największego przepływu 
+            </summary>
+            <returns>Raport z przepływu pod postacią obiektu kalsy String(zawiera wiele linii)</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.maxFlow">
+            <summary>
+            Zwróć maksymalny przepływ jako liczbę całkowitą
+            </summary>
+            <returns>Liczba całkowita reprezentująca maksymalny przepływ uzyskany w wyniku poprzedniego sprawdzania</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson.debugMode(System.Boolean)">
+            <summary>
+            Ustala czy użytkownik życzy sobie otrzymywać komunikaty na ekran
+            </summary>
+            <param name="_debug">Wartość logiczna: czy drukować komunikaty?</param>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson_Big_First.Flow(System.Int32,System.Int32,System.Nullable{System.Int16}[][])">
+            <summary>
+            Nadpisana wersja metody szukającej maksymalny przepływ.
+            Ta wersja realizuje model zachłanny:
+            analizuje wszystkie obecnie dostępne ścieżki i wybiera ta o największym przepływie 
+            </summary>
+            <param name="start">Punkt początkowy przepływu</param>
+            <param name="stop">Punkt końcowy przepływu</param>
+            <param name="_matrix">Graf na ktorym operujemy przedstawiony w postaci macierzy incydencji</param>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson_Big_First.analyze(System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}}@)">
+            <summary>
+            Analizuje wszystkie ścieżki dostępne dla obecnego grafu przejść
+            i wybiera tą o największym przepływie.
+            </summary>
+            <param name="paths">Wszystkie ścieżki między punktem startowym a końcowym</param>
+            <returns>Scieżka o największym przepływie przy obecnym stanie grafu</returns>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson_Big_First.removeUnavailable(System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}}@)">
+            <summary>
+            Usuwa niedrożne ścieżki z listy ścieżek
+            </summary>
+            <param name="paths">Referencja na listę ścieżek</param>
+        </member>
+        <member name="M:TGS_III.Ford_Fulkerson_Big_First.findPaths(System.Int32,System.Int32)">
+            <summary>
+            Znajduje wszystkie ścieżko z start do stop
+            </summary>
+            <param name="start">Poczatek każdej z ścieżek, punkt startowy</param>
+            <param name="stop">Koniec każdej z ścieżek, punkt końcowy</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGS_III.Graph.addEdge(System.Int32,System.Int32,System.Nullable{System.Int16})">
+            <summary>
+            Dodaj krawędź do grafu
+            </summary>
+            <param name="from">Startowy wierzchołek</param>
+            <param name="to">Końcowy wierzchołek</param>
+            <param name="flow">Przepływ pomiędzy wierzchołkami</param>
+        </member>
+        <member name="M:TGS_III.Graph.width">
+            <summary>
+            Rozszerza macierz incydencji matrix "w szerz"
+            tak by uwzględnić nowe wierzchołki
+            </summary>
+        </member>
+        <member name="M:TGS_III.Graph.height">
+            <summary>
+            Rozszerza macierz incydencji matrix
+            tak by można byłoy dodać nową krawędź
+            </summary>
+        </member>
+        <member name="M:TGS_III.Graph.findFlow(System.Int32,System.Int32)">
+            <summary>
+            Analizuje przepływ korzystając z algorytmu this.alg
+            implementującego metodę flow interfejsu IGFlow
+            </summary>
+            <param name="start">Wierzchołek początkowy</param>
+            <param name="stop">Wierzchołek końcowy</param>
+        </member>
+        <member name="M:TGS_III.Graph.flowAlg(TGS_III.IGFlow)">
+            <summary>
+            Ustawia algorytm szuykania przepływu
+            </summary>
+            <param name="_alg">Algorytm szukania przepływu implementujący interfejs IGFlow</param>
+        </member>
+        <member name="M:TGS_III.Graph.report">
+            <summary>
+            Wypisuje raport z poszukiwania przepływu na konsolę
+            </summary>
+        </member>
+        <member name="M:TGS_III.Graph.debugMode(System.Boolean)">
+            <summary>
+            Ustala czy użytkownik życzy sobie otrzymywać komunikaty na ekran
+            </summary>
+            <param name="_debug">Wartość logiczna: czy drukować komunikaty?</param>
+        </member>
+    </members>
+</doc>

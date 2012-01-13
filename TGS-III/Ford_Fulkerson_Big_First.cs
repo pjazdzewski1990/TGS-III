@@ -55,8 +55,7 @@ namespace TGS_III
         /// Analizuje wszystkie ścieżki dostępne dla obecnego grafu przejść
         /// i wybiera tą o największym przepływie.
         /// </summary>
-        /// <param name="start">Wierzchołek początkowy ścieżki</param>
-        /// <param name="stop">Wierzchołek końcowy ścieżki</param>
+        /// <param name="paths">Wszystkie ścieżki między punktem startowym a końcowym</param>
         /// <returns>Scieżka o największym przepływie przy obecnym stanie grafu</returns>
         protected List<int> analyze(ref List<List<int>> paths)
         {
