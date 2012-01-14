@@ -51,7 +51,7 @@ namespace TGS_III
                 minimize(path, min);
             }
 
-            raport_str.Append("Maksymalny przepływ to " + flow_val + "\n");
+            raport_str.Append("Maksymalny przepływ wg. Forda i Fulkersona to " + flow_val + "\n");
         }
 
         /// <summary>

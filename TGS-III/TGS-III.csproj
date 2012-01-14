@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Edmonds_Karp.cs" />
     <Compile Include="Ford_Fulkerson.cs" />
     <Compile Include="Ford_Fulkerson_Big_First.cs" />
     <Compile Include="Graph.cs" />

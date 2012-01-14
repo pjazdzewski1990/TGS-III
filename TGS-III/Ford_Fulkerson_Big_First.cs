@@ -48,7 +48,7 @@ namespace TGS_III
                 minimize(path, min);
             }
 
-            raport_str.Append("Maksymalny przepływ to " + flow_val + "\n");
+            raport_str.Append("Maksymalny przepływ wg. BigFirst to " + flow_val + "\n");
         }
 
         /// <summary>
@@ -72,7 +72,10 @@ namespace TGS_III
             for (int i = 0; i < paths.Count; i++)
             { 
                 int min = findMinFlow(paths[i]);
-                Console.WriteLine("Analyze: Porównuję " + representPath(paths[i]) + ":" + min + " z " + representPath(best) + ":" + best_flow);
+                if (debug)
+                {
+                    Console.WriteLine("Analyze: Porównuję " + representPath(paths[i]) + ":" + min + " z " + representPath(best) + ":" + best_flow);
+                }
                 if (min > best_flow) {
                     best_flow = min;
                     best = paths[i];
@@ -98,7 +101,7 @@ namespace TGS_III
         }
 
         /// <summary>
-        /// Znajduje wszystkie ścieżko z start do stop
+        /// Znajduje wszystkie ścieżki z start do stop
         /// </summary>
         /// <param name="start">Poczatek każdej z ścieżek, punkt startowy</param>
         /// <param name="stop">Koniec każdej z ścieżek, punkt końcowy</param>
