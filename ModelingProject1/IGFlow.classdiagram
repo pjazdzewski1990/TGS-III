@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="d0733358-52aa-43da-a7ed-6e5354736c7f" name="IGFlow" linkedPackageId="0677a3ba-ba54-47e2-ba05-0f2dd5e20fd7" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="9c305f83-60a0-492d-bb75-dac18128adba">
-      <profileInstance Id="13caddbf-08d8-46ad-8e27-80768cc0779f" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="67429a8b-92a5-49a4-a3cc-efa682ca5a66">
-      <profileInstance Id="33b45857-1376-49c6-8274-e4e91e13d7c4" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="88dc381d-251e-413c-a914-d02428c380a8" name="IGFLow" isAbstract="false" isLeaf="false">
@@ -103,8 +89,33 @@
         </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d6fb0508-92b6-49ad-b034-ddc257a01c41" name="Edmonds_Karp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ae7f3bc6-a145-4ca9-968e-1aca4dc43eb2" />
+        <generalsInternal>
+          <generalization Id="568cb4bd-e4b5-4839-8671-40a5a8a3bae7" isSubstitutable="false">
+            <classMoniker Id="3ef9df79-4293-4a77-9d9d-fee821c7654e" LastKnownName="Ford_Fulkerson" />
+            <elementDefinition Id="d78906f0-ea8f-4caa-922f-30dda3d70654" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="0677a3ba-ba54-47e2-ba05-0f2dd5e20fd7" name="ModelingProject1">
     <elementDefinition Id="e218e84f-57f0-4ebe-8d42-a501775cd6f9" />
+    <profileInstances>
+      <packageHasProfileInstances Id="9c305f83-60a0-492d-bb75-dac18128adba">
+        <profileInstance Id="13caddbf-08d8-46ad-8e27-80768cc0779f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="67429a8b-92a5-49a4-a3cc-efa682ca5a66">
+        <profileInstance Id="33b45857-1376-49c6-8274-e4e91e13d7c4" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

@@ -181,6 +181,25 @@
         </targetEnds>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ae7f3bc6-a145-4ca9-968e-1aca4dc43eb2"
+        name="Edmonds_Karp"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="d78906f0-ea8f-4caa-922f-30dda3d70654"
+            isSubstitutable="false">
+            <classMoniker
+              Id="513860fa-367b-433c-9f29-847d45cd6898"
+              LastKnownName="Ford_Fulkerson"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
