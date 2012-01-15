@@ -224,5 +224,11 @@
             <param name="stop">Koniec każdej z ścieżek, punkt końcowy</param>
             <returns></returns>
         </member>
+        <member name="T:TGS_III.Edmonds_Karp_Super_Flow">
+            <summary>
+            Algorytm Edmondsa i Karpa dla sieci o wielu źródłach i wielu ujściach
+            Wykorzystuje technikę superźródeł i superujść
+            </summary>
+        </member>
     </members>
 </doc>

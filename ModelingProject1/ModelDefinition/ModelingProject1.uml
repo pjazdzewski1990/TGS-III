@@ -200,6 +200,52 @@
         </generalsInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="9b62ef19-43b6-4028-aadf-7506f2077a3b"
+        name="IGSuperFlow"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="3ed56e34-f533-4a5a-be71-54fe2b5db557"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="255666a0-22c9-4d9c-9f86-2799235ed633"
+              LastKnownName="IGFLow"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="71375522-845b-401d-a7c6-d0b32a9d8f00"
+        name="Edmonds_Karp_Super_Flow"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="eb79280a-d0bc-40af-be05-92b58311d377">
+            <interfaceMoniker
+              Id="9b62ef19-43b6-4028-aadf-7506f2077a3b"
+              LastKnownName="IGSuperFlow"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="1da6adaf-7f62-413d-b62f-2c41db5be472"
+            isSubstitutable="false">
+            <classMoniker
+              Id="ae7f3bc6-a145-4ca9-968e-1aca4dc43eb2"
+              LastKnownName="Edmonds_Karp"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

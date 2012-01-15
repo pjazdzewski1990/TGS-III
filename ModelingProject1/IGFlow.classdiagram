@@ -100,6 +100,34 @@
         </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="f607ab12-17d6-4844-a133-1f49b01307b1" name="IGSuperFlow" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9b62ef19-43b6-4028-aadf-7506f2077a3b" />
+        <generalsInternal>
+          <generalization Id="f8bc169e-cea5-4845-94db-845ed5d317ff" isSubstitutable="false">
+            <interfaceMoniker Id="88dc381d-251e-413c-a914-d02428c380a8" LastKnownName="IGFLow" />
+            <elementDefinition Id="3ed56e34-f533-4a5a-be71-54fe2b5db557" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1ab11778-3e93-43c0-b3e9-e663bbd063ea" name="Edmonds_Karp_Super_Flow" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="71375522-845b-401d-a7c6-d0b32a9d8f00" />
+        <suppliersInternal>
+          <dependency Id="c3f34d69-a609-40be-b7d8-ba797301e518">
+            <interfaceMoniker Id="f607ab12-17d6-4844-a133-1f49b01307b1" LastKnownName="IGSuperFlow" />
+            <elementDefinition Id="eb79280a-d0bc-40af-be05-92b58311d377" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="b904a013-0ac2-440a-b6eb-0fabd8e2af67" isSubstitutable="false">
+            <classMoniker Id="d6fb0508-92b6-49ad-b034-ddc257a01c41" LastKnownName="Edmonds_Karp" />
+            <elementDefinition Id="1da6adaf-7f62-413d-b62f-2c41db5be472" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="0677a3ba-ba54-47e2-ba05-0f2dd5e20fd7" name="ModelingProject1">
     <elementDefinition Id="e218e84f-57f0-4ebe-8d42-a501775cd6f9" />

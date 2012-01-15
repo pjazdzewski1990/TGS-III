@@ -26,23 +26,37 @@ namespace TGS_III
 
             //2. Przygotuj algorytm i podaj go do obiektu klasy Graph
             //ggg.flowAlg(new Ford_Fulkerson());
-
             //3. Uruchom przekazany algorytm z odpowiednimi parametrami
             //ggg.debugMode(true);
             //ggg.findFlow(0, 4);
             //ggg.report();
-
             //Console.ReadKey();
 
             //alternatywny mechanizm szukania ścieżki
             //2. Przygotuj algorytm i podaj go do obiektu klasy Graph
-            ggg.flowAlg(new Edmonds_Karp());
+            //ggg.flowAlg(new Ford_Fulkerson_Big_First());
+            //3. Uruchom przekazany algorytm z odpowiednimi parametrami
+            //ggg.debugMode(true);
+            //ggg.findFlow(0, 4);
+            //ggg.report();
+            //Console.ReadKey();
 
+            //alternatywny mechanizm szukania ścieżki
+            //2. Przygotuj algorytm i podaj go do obiektu klasy Graph
+            //ggg.flowAlg(new Edmonds_Karp());
+            //3. Uruchom przekazany algorytm z odpowiednimi parametrami
+            //ggg.debugMode(true);
+            //ggg.findFlow(0, 4);
+            //ggg.report();
+            //Console.ReadKey();
+
+            //alternatywny mechanizm szukania ścieżki
+            //2. Przygotuj algorytm i podaj go do obiektu klasy Graph
+            ggg.flowAlg(new Ford_Fulkerson_Big_First());
             //3. Uruchom przekazany algorytm z odpowiednimi parametrami
             ggg.debugMode(true);
             ggg.findFlow(0, 4);
             ggg.report();
-
             Console.ReadKey();
 
             //Przykład 2 

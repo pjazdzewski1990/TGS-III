@@ -118,7 +118,7 @@ namespace TGS_III
         /// <param name="start">Poczatek każdej z ścieżek, punkt startowy</param>
         /// <param name="stop">Koniec każdej z ścieżek, punkt końcowy</param>
         /// <returns></returns>
-        private List<List<int>> findPaths(int start, int stop)
+        protected List<List<int>> findPaths(int start, int stop)
         {
             //wszystkie ścieżki z "start" do "stop" w obecnym "matrix"
             List<List<int>> paths = new List<List<int>>();

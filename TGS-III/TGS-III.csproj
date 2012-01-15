@@ -45,10 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Edmonds_Karp.cs" />
+    <Compile Include="Edmonds_Karp_Super_Flow.cs" />
     <Compile Include="Ford_Fulkerson.cs" />
     <Compile Include="Ford_Fulkerson_Big_First.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="IGFlow.cs" />
+    <Compile Include="IGSuperFlow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
