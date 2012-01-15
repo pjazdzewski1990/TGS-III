@@ -246,6 +246,34 @@
         </generalsInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c59e3893-a94d-42c0-afc0-aa88c2df7116"
+        name="Edmonds_Karp_Super_Flow_naive"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="0f660b3f-1226-45d4-a47e-22af011d5e93">
+            <interfaceMoniker
+              Id="9b62ef19-43b6-4028-aadf-7506f2077a3b"
+              LastKnownName="IGSuperFlow"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="714ab3a4-f0ad-458a-8693-918c72553ea7"
+            isSubstitutable="false">
+            <classMoniker
+              Id="ae7f3bc6-a145-4ca9-968e-1aca4dc43eb2"
+              LastKnownName="Edmonds_Karp"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

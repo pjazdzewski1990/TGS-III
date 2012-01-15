@@ -128,6 +128,23 @@
         </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2c785d01-96c3-4668-a560-e131fa638c29" name="Edmonds_Karp_Super_Flow_naive" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c59e3893-a94d-42c0-afc0-aa88c2df7116" />
+        <suppliersInternal>
+          <dependency Id="12e5e38b-31db-49d5-b417-e723972d6247">
+            <interfaceMoniker Id="f607ab12-17d6-4844-a133-1f49b01307b1" LastKnownName="IGSuperFlow" />
+            <elementDefinition Id="0f660b3f-1226-45d4-a47e-22af011d5e93" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="c6c3ac58-8b6b-4616-8c43-ee744a130188" isSubstitutable="false">
+            <classMoniker Id="d6fb0508-92b6-49ad-b034-ddc257a01c41" LastKnownName="Edmonds_Karp" />
+            <elementDefinition Id="714ab3a4-f0ad-458a-8693-918c72553ea7" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="0677a3ba-ba54-47e2-ba05-0f2dd5e20fd7" name="ModelingProject1">
     <elementDefinition Id="e218e84f-57f0-4ebe-8d42-a501775cd6f9" />

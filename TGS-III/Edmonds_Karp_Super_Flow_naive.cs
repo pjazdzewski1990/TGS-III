@@ -7,7 +7,7 @@ namespace TGS_III
 {
     /// <summary>
     /// Algorytm Edmondsa i Karpa dla sieci o wielu źródłach i wielu ujściach
-    /// Wykorzystuje technikę superźródeł i superujść
+    /// Podejście naiwne
     /// </summary>
     class Edmonds_Karp_Super_Flow_naive : Edmonds_Karp, IGSuperFlow
     {
@@ -40,7 +40,7 @@ namespace TGS_III
                 minimize(path, min);
             }
 
-            raport_str.Append("Maksymalny przepływ to wg. Edmondsa i Karpa " + flow_val + "\n");
+            raport_str.Append("Maksymalny przepływ to wg. Edmondsa i Karpa(naive super flow) to " + flow_val + "\n");
         }
 
         protected List<List<int>> findMultiplepaths(List<int> start, List<int> stop)

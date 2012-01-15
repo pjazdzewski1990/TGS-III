@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Edmonds_Karp.cs" />
     <Compile Include="Edmonds_Karp_Super_Flow.cs" />
+    <Compile Include="Edmonds_Karp_Super_Flow_naive.cs" />
     <Compile Include="Ford_Fulkerson.cs" />
     <Compile Include="Ford_Fulkerson_Big_First.cs" />
     <Compile Include="Graph.cs" />
