@@ -168,6 +168,13 @@
             <param name="start">Wierzchołek początkowy</param>
             <param name="stop">Wierzchołek końcowy</param>
         </member>
+        <member name="M:TGS_III.Graph.copyMatrix(System.Nullable{System.Int16}[][])">
+            <summary>
+            Tworzy głęboką kopię macierzy matrix
+            </summary>
+            <param name="matrix">Macierz kwadratowa do skopiowania</param>
+            <returns>Deep copy argumentu matrix</returns>
+        </member>
         <member name="M:TGS_III.Graph.flowAlg(TGS_III.IGFlow)">
             <summary>
             Ustawia algorytm szuykania przepływu
@@ -184,6 +191,17 @@
             Ustala czy użytkownik życzy sobie otrzymywać komunikaty na ekran
             </summary>
             <param name="_debug">Wartość logiczna: czy drukować komunikaty?</param>
+        </member>
+        <member name="M:TGS_III.SuperGraph.super_report">
+            <summary>
+            Wypisuje raport z poszukiwania przepływu na konsolę
+            </summary>
+        </member>
+        <member name="T:TGS_III.Edmonds_Karp_Super_Flow">
+            <summary>
+            Algorytm Edmondsa i Karpa dla sieci o wielu źródłach i wielu ujściach
+            Wykorzystuje technikę superźródeł i superujść
+            </summary>
         </member>
         <member name="T:TGS_III.Edmonds_Karp">
             <summary>
@@ -224,10 +242,16 @@
             <param name="stop">Koniec każdej z ścieżek, punkt końcowy</param>
             <returns></returns>
         </member>
-        <member name="T:TGS_III.Edmonds_Karp_Super_Flow">
+        <member name="M:TGS_III.Edmonds_Karp_Super_Flow.height">
+            <summary>
+            Rozszerza macierz incydencji matrix
+            tak by można byłoy dodać nową krawędź
+            </summary>
+        </member>
+        <member name="T:TGS_III.Edmonds_Karp_Super_Flow_naive">
             <summary>
             Algorytm Edmondsa i Karpa dla sieci o wielu źródłach i wielu ujściach
-            Wykorzystuje technikę superźródeł i superujść
+            Podejście naiwne
             </summary>
         </member>
     </members>

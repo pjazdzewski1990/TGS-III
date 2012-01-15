@@ -274,6 +274,66 @@
         </generalsInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="cf600d89-ed44-4f10-aead-5cb70596c87c"
+        name="SuperGraph"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="b096b950-e53d-49bf-9ed3-2e1283981f14"
+            isSubstitutable="false">
+            <classMoniker
+              Id="22376099-2b6d-4ada-bf90-5cd3a5c90017"
+              LastKnownName="Graph"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="dba82397-75f6-40f9-9812-9eaefbfa8080"
+            isDerived="false"
+            sourceEndRoleName="SuperGraph"
+            targetEndRoleName="IGSuperFlow"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="9b62ef19-43b6-4028-aadf-7506f2077a3b"
+              LastKnownName="IGSuperFlow"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f77ccac2-ecbf-4186-9d01-1e9d48cd791e"
+                  name="SuperGraph"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="60ec25aa-d3bf-4992-8abe-0bad156fcb91"
+                  name="IGSuperFlow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

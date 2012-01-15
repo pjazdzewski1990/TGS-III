@@ -127,7 +127,7 @@ namespace TGS_III
                 }
             }
 
-            raport_str.Append("Przepływ na ścieżce wynosi " + min + "\n");
+            //raport_str.Append("Przepływ na ścieżce wynosi " + min + "\n");
             if (debug)
             {
                 Console.WriteLine("Przepływ na ścieżce wynosi " + min);

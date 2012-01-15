@@ -13,17 +13,17 @@ namespace TGS_III
         //
         //z kolei kolumny wskazują skąd dokąd mamy dostęp, tj.
         // liczby większe niż 0 w kolumnie o indeksie x mówią dokąd możemy się dostać z x
-        Int16?[][] matrix = new Int16?[0][];
+        protected Int16?[][] matrix = new Int16?[0][];
 
         //ilość krawędzi - może być większa niż rzeczywista liczba
-        int num_edges = 0;
+        protected int num_edges = 0;
         //ilość krawędzi jakie może pomieścić macierz
-        int max_edges = 0;
+        protected int max_edges = 0;
         //ilość wierzchołków - dla oszczędności dokładnie odpowiada liczbie wierzchołków 
-        int num_vertices = 0;
+        protected int num_vertices = 0;
 
         //algorytm szukania przepływu
-        IGFlow alg;
+        protected IGFlow alg;
 
         /// <summary>
         /// Dodaj krawędź do grafu
@@ -56,7 +56,7 @@ namespace TGS_III
         /// Rozszerza macierz incydencji matrix "w szerz"
         /// tak by uwzględnić nowe wierzchołki
         /// </summary>
-        private void width()
+        protected void width()
         {
             //do nothin'
         }
@@ -65,7 +65,7 @@ namespace TGS_III
         /// Rozszerza macierz incydencji matrix
         /// tak by można byłoy dodać nową krawędź
         /// </summary>
-        private void height()
+        protected void height()
         {
             max_edges += 1;
             Array.Resize<Int16?[]>(ref matrix, max_edges);
@@ -78,7 +78,27 @@ namespace TGS_III
         /// <param name="start">Wierzchołek początkowy</param>
         /// <param name="stop">Wierzchołek końcowy</param>
         public void findFlow(int start, int stop) {
-            alg.Flow(start, stop, matrix);
+            Int16?[][] new_matrix = copyMatrix(matrix);
+            alg.Flow(start, stop, new_matrix);
+        }
+
+        /// <summary>
+        /// Tworzy głęboką kopię macierzy matrix
+        /// </summary>
+        /// <param name="matrix">Macierz kwadratowa do skopiowania</param>
+        /// <returns>Deep copy argumentu matrix</returns>
+        protected short?[][] copyMatrix(short?[][] matrix)
+        {
+            short?[][] newOne = new short?[matrix.Length][];
+            
+            for(int i = 0; i<matrix.Length; i++){
+                newOne[i] = new short?[matrix[i].Length];
+                for(int j=0; j<newOne[i].Length; j++){
+                    newOne[i][j] = matrix[i][j];
+                }
+            }
+
+            return newOne;
         }
 
         /// <summary>
@@ -93,7 +113,7 @@ namespace TGS_III
         /// <summary>
         /// Wypisuje raport z poszukiwania przepływu na konsolę
         /// </summary>
-        internal void report()
+        public void report()
         {
             Console.WriteLine(alg.report());
         }

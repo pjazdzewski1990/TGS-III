@@ -33,8 +33,13 @@ namespace TGS_III
             //które określają wierzchołki przez które trzeba przejść
             List<int> path = null;
 
+            //wszystkie trasy możliwe w grafie
+            //w wyniku działania algorytmu tras może co najwyżej ubyć 
+            // dlatego opłaca się znaleźć je tylko raz i pytem tylko pozbywać się tych już nieużytecznych
+            List<List<int>> paths = findPaths(start, stop);
+
             //jeśli jest ścieżka o długości większej niż 0 
-            while ((path = findPath(start, stop)).Count > 0)
+            while ((path = analyze(ref paths)).Count > 0)
             {
                 int min = findMinFlow(path);
                 flow_val += min;
@@ -54,6 +59,9 @@ namespace TGS_III
                 int flow_in = input(stop);
                 //nowy wierzchołek jest połączony z punktem startowym x krawedzia\
                 // o przeplywie równym sumie wypływu z danego punktu 
+                if (debug) {
+                    Console.WriteLine("Do wierzcholka " + stop + " wplywa " + flow_in);
+                }
                 add_transition(stop, index, (short?)flow_in);
             }
 
@@ -67,10 +75,10 @@ namespace TGS_III
             foreach (short?[] trans in matrix)
             {
                 //znajdź wszystkie przejścia, które kończą się w stop
-                if (trans[stop] != null && trans[stop] == -1)
+                if (stop < trans.Length && trans[stop] != null && trans[stop] == -1)
                 {
                     //znajdź wartość tego przejścia
-                    foreach (int i in trans) {
+                    foreach (int? i in trans) {
                         if (i > 0) {
                             sum += i;
                             break;
@@ -90,6 +98,10 @@ namespace TGS_III
                 int flow_out = output(start);
                 //nowy wierzchołek jest połączony z punktem startowym x krawedzia\
                 // o przeplywie równym sumie wypływu z danego punktu 
+                if (debug)
+                {
+                    Console.WriteLine("Do wierzcholka " + start + " wplywa " + flow_out);
+                }
                 add_transition(index, start, (short?)flow_out);
             }
 
@@ -99,6 +111,8 @@ namespace TGS_III
 
         private void add_transition(int from, int to, short? flow)
         {
+            ++edges_num;
+
             //najpierw rozszerz "w szerz"
             int num_vertices = Math.Max(from, to) + 1;
 
@@ -108,8 +122,6 @@ namespace TGS_III
             matrix[edges_num] = new Int16?[num_vertices];
             matrix[edges_num][from] = flow;
             matrix[edges_num][to] = -1;
-
-            ++edges_num;
         }
 
         /// <summary>
@@ -124,7 +136,7 @@ namespace TGS_III
         private int prepareMatrix()
         {
             //wystarczy zwrócić potencjalny index nowego wierzchołka
-            return edges_num;
+            return matrix[matrix.Length - 1].Length;
         }
 
         private int output(int start)

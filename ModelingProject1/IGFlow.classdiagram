@@ -145,6 +145,35 @@
         </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="12a3d34a-4200-4064-9695-ec9490a5ed32" name="SuperGraph" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="cf600d89-ed44-4f10-aead-5cb70596c87c" />
+        <generalsInternal>
+          <generalization Id="5fb74393-0416-4caa-8667-02d8bc89bed1" isSubstitutable="false">
+            <classMoniker Id="0282fc5d-97f4-40c3-8022-b4d16c474fb7" LastKnownName="Graph" />
+            <elementDefinition Id="b096b950-e53d-49bf-9ed3-2e1283981f14" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="6eb51158-c965-41e6-984f-ab32a0067a5c" isDerived="false" sourceEndRoleName="SuperGraph" targetEndRoleName="IGSuperFlow" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="f607ab12-17d6-4844-a133-1f49b01307b1" LastKnownName="IGSuperFlow" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8195f56b-ca54-45a8-a302-dd10d4ffb367" name="SuperGraph" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f77ccac2-ecbf-4186-9d01-1e9d48cd791e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0a2526b2-aa6f-4ff9-bc63-2ca5aa191aed" name="IGSuperFlow" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="60ec25aa-d3bf-4992-8abe-0bad156fcb91" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="dba82397-75f6-40f9-9812-9eaefbfa8080" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="0677a3ba-ba54-47e2-ba05-0f2dd5e20fd7" name="ModelingProject1">
     <elementDefinition Id="e218e84f-57f0-4ebe-8d42-a501775cd6f9" />
