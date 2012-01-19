@@ -10,7 +10,7 @@ namespace TGS_III
     /// polega na szukaniu ścieżek które są najkrótsze,
     /// w sensie mają minimalną ilość krawędzi
     /// </summary>
-
+    [Serializable]
     class Edmonds_Karp : Ford_Fulkerson
     {
 

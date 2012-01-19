@@ -10,6 +10,7 @@ namespace TGS_III
     /// Ta wersja w pierwszej kolejności wybiera ścieżki dające największy 
     /// przepływ w danym momencie 
     /// </summary>
+    [Serializable]
     class Ford_Fulkerson_Big_First : Ford_Fulkerson
     {
 

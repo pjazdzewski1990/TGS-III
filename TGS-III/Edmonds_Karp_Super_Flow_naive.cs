@@ -9,6 +9,7 @@ namespace TGS_III
     /// Algorytm Edmondsa i Karpa dla sieci o wielu źródłach i wielu ujściach
     /// Podejście naiwne
     /// </summary>
+    [Serializable]
     class Edmonds_Karp_Super_Flow_naive : Edmonds_Karp, IGSuperFlow
     {
         public void Flow(List<int> start, List<int> stop, Int16?[][] _matrix) {

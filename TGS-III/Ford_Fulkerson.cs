@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TGS_III
 {
+    [Serializable]
     class Ford_Fulkerson : IGFlow
     {
         //zbiera dane do późniejszego raportowania

@@ -9,6 +9,7 @@ namespace TGS_III
     /// Algorytm Edmondsa i Karpa dla sieci o wielu źródłach i wielu ujściach
     /// Wykorzystuje technikę superźródeł i superujść
     /// </summary>
+    [Serializable]
     class Edmonds_Karp_Super_Flow : Edmonds_Karp, IGSuperFlow
     {
         public void Flow(List<int> starting_points, List<int> stoping_points, short?[][] _matrix)

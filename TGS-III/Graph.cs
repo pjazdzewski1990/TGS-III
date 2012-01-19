@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TGS_III
 {
+    [Serializable]
     class Graph
     {
         //macierz incydencji

@@ -124,7 +124,7 @@ namespace TGS_III
                 Console.WriteLine("Wybierz algorytm szukania ścieżki ");
                 Console.WriteLine("1.EG naive");
                 Console.WriteLine("2.EG");
-                Console.WriteLine("3.Wyjdź ");
+                Console.WriteLine("3.Wyjdź");
 
                 choice = Convert.ToInt32(Console.ReadLine());
                 if (choice == 3) { break; }
@@ -150,6 +150,12 @@ namespace TGS_III
                 sg.super_report();
             }
 
+            //zapisz graf dwa do pliku
+            String path = @"C:\TGIS.bin";
+            sg.Serialize(@path);
+            SuperGraph from = SuperGraph.Deserialize(@path);
+            Console.WriteLine("");
+
             /*
             //Przykład 2 
             //1. Przygotuj graf
@@ -172,7 +178,6 @@ namespace TGS_III
             ggg3.report();
             Console.ReadKey();
             */
-
         }
 
         private static List<int> fillList()
